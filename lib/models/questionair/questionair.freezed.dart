@@ -16,10 +16,10 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$QuestionairTearOff {
   const _$QuestionairTearOff();
 
-  _Questionair call({String param = '', int catergory = 0}) {
+  _Questionair call({String param = '', int category = 0}) {
     return _Questionair(
       param: param,
-      catergory: catergory,
+      category: category,
     );
   }
 }
@@ -30,7 +30,7 @@ const $Questionair = _$QuestionairTearOff();
 /// @nodoc
 mixin _$Questionair {
   String get param => throw _privateConstructorUsedError;
-  int get catergory => throw _privateConstructorUsedError;
+  int get category => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionairCopyWith<Questionair> get copyWith =>
@@ -42,7 +42,7 @@ abstract class $QuestionairCopyWith<$Res> {
   factory $QuestionairCopyWith(
           Questionair value, $Res Function(Questionair) then) =
       _$QuestionairCopyWithImpl<$Res>;
-  $Res call({String param, int catergory});
+  $Res call({String param, int category});
 }
 
 /// @nodoc
@@ -56,16 +56,16 @@ class _$QuestionairCopyWithImpl<$Res> implements $QuestionairCopyWith<$Res> {
   @override
   $Res call({
     Object? param = freezed,
-    Object? catergory = freezed,
+    Object? category = freezed,
   }) {
     return _then(_value.copyWith(
       param: param == freezed
           ? _value.param
           : param // ignore: cast_nullable_to_non_nullable
               as String,
-      catergory: catergory == freezed
-          ? _value.catergory
-          : catergory // ignore: cast_nullable_to_non_nullable
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -78,7 +78,7 @@ abstract class _$QuestionairCopyWith<$Res>
           _Questionair value, $Res Function(_Questionair) then) =
       __$QuestionairCopyWithImpl<$Res>;
   @override
-  $Res call({String param, int catergory});
+  $Res call({String param, int category});
 }
 
 /// @nodoc
@@ -94,16 +94,16 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
   @override
   $Res call({
     Object? param = freezed,
-    Object? catergory = freezed,
+    Object? category = freezed,
   }) {
     return _then(_Questionair(
       param: param == freezed
           ? _value.param
           : param // ignore: cast_nullable_to_non_nullable
               as String,
-      catergory: catergory == freezed
-          ? _value.catergory
-          : catergory // ignore: cast_nullable_to_non_nullable
+      category: category == freezed
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
@@ -112,18 +112,18 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Questionair implements _Questionair {
-  const _$_Questionair({this.param = '', this.catergory = 0});
+  const _$_Questionair({this.param = '', this.category = 0});
 
   @JsonKey(defaultValue: '')
   @override
   final String param;
   @JsonKey(defaultValue: 0)
   @override
-  final int catergory;
+  final int category;
 
   @override
   String toString() {
-    return 'Questionair(param: $param, catergory: $catergory)';
+    return 'Questionair(param: $param, category: $category)';
   }
 
   @override
@@ -132,16 +132,16 @@ class _$_Questionair implements _Questionair {
         (other is _Questionair &&
             (identical(other.param, param) ||
                 const DeepCollectionEquality().equals(other.param, param)) &&
-            (identical(other.catergory, catergory) ||
+            (identical(other.category, category) ||
                 const DeepCollectionEquality()
-                    .equals(other.catergory, catergory)));
+                    .equals(other.category, category)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(param) ^
-      const DeepCollectionEquality().hash(catergory);
+      const DeepCollectionEquality().hash(category);
 
   @JsonKey(ignore: true)
   @override
@@ -150,12 +150,12 @@ class _$_Questionair implements _Questionair {
 }
 
 abstract class _Questionair implements Questionair {
-  const factory _Questionair({String param, int catergory}) = _$_Questionair;
+  const factory _Questionair({String param, int category}) = _$_Questionair;
 
   @override
   String get param => throw _privateConstructorUsedError;
   @override
-  int get catergory => throw _privateConstructorUsedError;
+  int get category => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$QuestionairCopyWith<_Questionair> get copyWith =>

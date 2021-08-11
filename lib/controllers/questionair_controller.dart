@@ -6,6 +6,18 @@ class QuestionairController extends StateNotifier<Questionair> {
   QuestionairController() : super(Questionair());
 
   void setParam(String value) {
-    state = state.copyWith(param: state.param + value);
+    state = state.copyWith(param: state.param + ' ' + value);
+  }
+
+  void resetParam() {
+    state = state.copyWith(param: '');
+  }
+
+  void setCategory(int value) {
+    state = state.copyWith(category: value);
+  }
+
+  void resetCategory() {
+    state = state.copyWith(category: 0);
   }
 }
