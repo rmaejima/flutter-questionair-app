@@ -2,19 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:questionair_app/views/components/common/q_button.dart';
+import 'package:questionair_app/views/components/common/show_questionair_state.dart';
 import 'package:questionair_app/views/screens/q2.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../providers/questionair_provider.dart';
 
-class Q1 extends HookWidget {
+class Q1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // コントローラの宣言
-    final _questionairController = useProvider(questionairProvider.notifier);
-    // ステートの宣言
-    final _questionairState =
-        useProvider(questionairProvider.select((value) => value));
+    // // コントローラの宣言
+    // final _questionairController = useProvider(questionairProvider.notifier);
+    // // ステートの宣言
+    // final _questionairState =
+    //     useProvider(questionairProvider.select((value) => value));
 
     return Scaffold(
       appBar: AppBar(
@@ -25,18 +26,19 @@ class Q1 extends HookWidget {
           QButton(
             param: '良い',
             color: Colors.red,
-            // route: Q2(),
+            route: Q2(),
           ),
           QButton(
             param: '普通',
             color: Colors.yellow,
-            // route: Q2(),
+            route: Q2(),
           ),
           QButton(
             param: '悪い',
             color: Colors.blue,
-            // route: Q2(),
+            route: Q2(),
           ),
+          ShowQuestionairState(),
           // ElevatedButton(
           //   child: const Text('良い'),
           //   style: ElevatedButton.styleFrom(
@@ -85,7 +87,7 @@ class Q1 extends HookWidget {
           //     _questionairController.setParam('悪い');
           //   },
           // ),
-          Text('${_questionairState.param}'),
+          // Text('${_questionairState.param}'),
         ],
       ),
     );

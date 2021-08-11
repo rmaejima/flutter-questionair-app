@@ -8,11 +8,11 @@ class QButton extends HookWidget {
   QButton({
     required this.param,
     required this.color,
-    // required this.route,
+    required this.route,
   });
   String param;
   Color color;
-  // Widget route;
+  Widget route;
 
   @override
   Widget build(BuildContext context) {
@@ -34,8 +34,8 @@ class QButton extends HookWidget {
           context,
           MaterialPageRoute<void>(
             builder: (context) {
-              // return route;
-              return Q2();
+              return route;
+              // return Q2();
             },
           ),
         );
