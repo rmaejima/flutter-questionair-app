@@ -13,16 +13,6 @@ class Result extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          // QButton(
-          //   param: '良い',
-          //   color: Colors.red,
-          //   route: Q2(),
-          // ),
-          // QButton(
-          //   param: '普通',
-          //   color: Colors.yellow,
-          //   route: Q2(),
-          // ),
           ShowQuestionairState(),
           // 後々変える
           BackTopButton(),
