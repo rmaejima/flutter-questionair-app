@@ -1,74 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../providers/questionair_provider.dart';
+import 'package:questionair_app/views/components/common/q_button.dart';
+import 'package:questionair_app/views/components/common/show_questionair_state.dart';
+import 'package:questionair_app/views/screens/result.dart';
 
-class Q2 extends HookWidget {
+class Q2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // コントローラの宣言
-    final _questionairController = useProvider(questionairProvider.notifier);
-    // ステートの宣言
-    final _questionairState =
-        useProvider(questionairProvider.select((value) => value));
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('あなたの気持ちは？'),
+        title: Text('あなたの気分は？'),
       ),
       body: ListView(
         children: [
-          ElevatedButton(
-            child: const Text('良い'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.red,
-              onPrimary: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            onPressed: () {
-              _questionairController.setParam('良い');
-              // エラーが起こる
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute<void>(
-              //     builder: (context) {
-              //       return Q2();
-              //     },
-              //   ),
-              // );
-            },
+          QButton(
+            param: '良い',
+            color: Colors.red,
+            route: Result(),
           ),
-          ElevatedButton(
-            child: const Text('普通'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.yellow,
-              onPrimary: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            onPressed: () {
-              _questionairController.setParam('普通');
-            },
+          QButton(
+            param: '普通',
+            color: Colors.yellow,
+            route: Result(),
           ),
-          ElevatedButton(
-            child: const Text('悪い'),
-            style: ElevatedButton.styleFrom(
-              primary: Colors.blue,
-              onPrimary: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-            ),
-            onPressed: () {
-              _questionairController.setParam('悪い');
-            },
+          QButton(
+            param: '悪い',
+            color: Colors.blue,
+            route: Result(),
           ),
-          Text('${_questionairState.param}'),
+          ShowQuestionairState(),
         ],
       ),
     );
