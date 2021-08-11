@@ -16,7 +16,7 @@ class Q2 extends HookWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('あなたの体調は？'),
+        title: Text('あなたの気持ちは？'),
       ),
       body: ListView(
         children: [
