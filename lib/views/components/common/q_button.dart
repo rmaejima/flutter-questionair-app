@@ -28,7 +28,6 @@ class QButton extends HookWidget {
       ),
       onPressed: () {
         _questionairController.setParam(param);
-        // エラーが起こる
         Navigator.push(
           context,
           MaterialPageRoute<void>(
