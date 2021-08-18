@@ -15,29 +15,8 @@ class Q1 extends HookWidget {
       appBar: AppBar(
         title: Text('プレイヤーを追加してください'),
       ),
-      // body: ListView(
-      //   children: [
-      //     QButton(
-      //       param: '良い',
-      //       color: Colors.red,
-      //       route: Q2(),
-      //     ),
-      //     QButton(
-      //       param: '普通',
-      //       color: Colors.yellow,
-      //       route: Q2(),
-      //     ),
-      //     QButton(
-      //       param: '悪い',
-      //       color: Colors.blue,
-      //       route: Q2(),
-      //     ),
-      //     ShowQuestionairState(),
-      //   ],
-      // ),
       body: ListView.builder(
         itemCount: _playersState.players.length,
-        // itemCount: 10,
         itemBuilder: (context, index) {
           return Card(
             // それぞれの名前を表示
@@ -48,12 +27,43 @@ class Q1 extends HookWidget {
       ),
       floatingActionButton: FloatingActionButton(
         // プレイヤーを追加
-        onPressed: () {
-          _playersController.addPlayer();
-        },
+        onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddPlayerDialog()),
         tooltip: 'Increment',
         child: Icon(Icons.add),
       ),
+    );
+  }
+}
+
+class AddPlayerDialog extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final _playersController = useProvider(questionairProvider.notifier);
+    return AlertDialog(
+      title: Text('名前を入力してください'),
+      content: TextField(
+        // controller: ,
+        decoration: InputDecoration(
+          hintText: 'Name',
+        ),
+        autofocus: true,
+        // keyboardType: TextInputType.name,
+      ),
+      actions: <Widget>[
+        TextButton(
+          child: const Text('Cancel'),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+        TextButton(
+          child: const Text('OK'),
+          onPressed: () {
+            _playersController.addPlayer();
+            Navigator.of(context).pop();
+          },
+        ),
+      ],
     );
   }
 }
