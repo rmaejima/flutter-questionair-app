@@ -5,8 +5,8 @@ part 'questionair.freezed.dart';
 @freezed
 abstract class Questionair with _$Questionair {
   const factory Questionair({
-    @Default(1) int playerNum,
-    @Default([]) List<String> player,
+    @Default(0) int playersNum,
+    @Default([]) List<String> players,
     @Default([]) List<String> alcohol,
     @Default([]) List<int> amount,
   }) = _Questionair;

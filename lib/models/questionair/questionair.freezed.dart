@@ -17,13 +17,13 @@ class _$QuestionairTearOff {
   const _$QuestionairTearOff();
 
   _Questionair call(
-      {int playerNum = 1,
-      List<String> player = const [],
+      {int playersNum = 0,
+      List<String> players = const [],
       List<String> alcohol = const [],
       List<int> amount = const []}) {
     return _Questionair(
-      playerNum: playerNum,
-      player: player,
+      playersNum: playersNum,
+      players: players,
       alcohol: alcohol,
       amount: amount,
     );
@@ -35,8 +35,8 @@ const $Questionair = _$QuestionairTearOff();
 
 /// @nodoc
 mixin _$Questionair {
-  int get playerNum => throw _privateConstructorUsedError;
-  List<String> get player => throw _privateConstructorUsedError;
+  int get playersNum => throw _privateConstructorUsedError;
+  List<String> get players => throw _privateConstructorUsedError;
   List<String> get alcohol => throw _privateConstructorUsedError;
   List<int> get amount => throw _privateConstructorUsedError;
 
@@ -51,8 +51,8 @@ abstract class $QuestionairCopyWith<$Res> {
           Questionair value, $Res Function(Questionair) then) =
       _$QuestionairCopyWithImpl<$Res>;
   $Res call(
-      {int playerNum,
-      List<String> player,
+      {int playersNum,
+      List<String> players,
       List<String> alcohol,
       List<int> amount});
 }
@@ -67,19 +67,19 @@ class _$QuestionairCopyWithImpl<$Res> implements $QuestionairCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? playerNum = freezed,
-    Object? player = freezed,
+    Object? playersNum = freezed,
+    Object? players = freezed,
     Object? alcohol = freezed,
     Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
-      playerNum: playerNum == freezed
-          ? _value.playerNum
-          : playerNum // ignore: cast_nullable_to_non_nullable
+      playersNum: playersNum == freezed
+          ? _value.playersNum
+          : playersNum // ignore: cast_nullable_to_non_nullable
               as int,
-      player: player == freezed
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
+      players: players == freezed
+          ? _value.players
+          : players // ignore: cast_nullable_to_non_nullable
               as List<String>,
       alcohol: alcohol == freezed
           ? _value.alcohol
@@ -101,8 +101,8 @@ abstract class _$QuestionairCopyWith<$Res>
       __$QuestionairCopyWithImpl<$Res>;
   @override
   $Res call(
-      {int playerNum,
-      List<String> player,
+      {int playersNum,
+      List<String> players,
       List<String> alcohol,
       List<int> amount});
 }
@@ -119,19 +119,19 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? playerNum = freezed,
-    Object? player = freezed,
+    Object? playersNum = freezed,
+    Object? players = freezed,
     Object? alcohol = freezed,
     Object? amount = freezed,
   }) {
     return _then(_Questionair(
-      playerNum: playerNum == freezed
-          ? _value.playerNum
-          : playerNum // ignore: cast_nullable_to_non_nullable
+      playersNum: playersNum == freezed
+          ? _value.playersNum
+          : playersNum // ignore: cast_nullable_to_non_nullable
               as int,
-      player: player == freezed
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
+      players: players == freezed
+          ? _value.players
+          : players // ignore: cast_nullable_to_non_nullable
               as List<String>,
       alcohol: alcohol == freezed
           ? _value.alcohol
@@ -149,17 +149,17 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
 
 class _$_Questionair implements _Questionair {
   const _$_Questionair(
-      {this.playerNum = 1,
-      this.player = const [],
+      {this.playersNum = 0,
+      this.players = const [],
       this.alcohol = const [],
       this.amount = const []});
 
-  @JsonKey(defaultValue: 1)
+  @JsonKey(defaultValue: 0)
   @override
-  final int playerNum;
+  final int playersNum;
   @JsonKey(defaultValue: const [])
   @override
-  final List<String> player;
+  final List<String> players;
   @JsonKey(defaultValue: const [])
   @override
   final List<String> alcohol;
@@ -169,18 +169,19 @@ class _$_Questionair implements _Questionair {
 
   @override
   String toString() {
-    return 'Questionair(playerNum: $playerNum, player: $player, alcohol: $alcohol, amount: $amount)';
+    return 'Questionair(playersNum: $playersNum, players: $players, alcohol: $alcohol, amount: $amount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Questionair &&
-            (identical(other.playerNum, playerNum) ||
+            (identical(other.playersNum, playersNum) ||
                 const DeepCollectionEquality()
-                    .equals(other.playerNum, playerNum)) &&
-            (identical(other.player, player) ||
-                const DeepCollectionEquality().equals(other.player, player)) &&
+                    .equals(other.playersNum, playersNum)) &&
+            (identical(other.players, players) ||
+                const DeepCollectionEquality()
+                    .equals(other.players, players)) &&
             (identical(other.alcohol, alcohol) ||
                 const DeepCollectionEquality()
                     .equals(other.alcohol, alcohol)) &&
@@ -191,8 +192,8 @@ class _$_Questionair implements _Questionair {
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(playerNum) ^
-      const DeepCollectionEquality().hash(player) ^
+      const DeepCollectionEquality().hash(playersNum) ^
+      const DeepCollectionEquality().hash(players) ^
       const DeepCollectionEquality().hash(alcohol) ^
       const DeepCollectionEquality().hash(amount);
 
@@ -204,15 +205,15 @@ class _$_Questionair implements _Questionair {
 
 abstract class _Questionair implements Questionair {
   const factory _Questionair(
-      {int playerNum,
-      List<String> player,
+      {int playersNum,
+      List<String> players,
       List<String> alcohol,
       List<int> amount}) = _$_Questionair;
 
   @override
-  int get playerNum => throw _privateConstructorUsedError;
+  int get playersNum => throw _privateConstructorUsedError;
   @override
-  List<String> get player => throw _privateConstructorUsedError;
+  List<String> get players => throw _privateConstructorUsedError;
   @override
   List<String> get alcohol => throw _privateConstructorUsedError;
   @override
