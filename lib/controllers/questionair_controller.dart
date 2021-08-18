@@ -7,10 +7,10 @@ class QuestionairController extends StateNotifier<Questionair> {
   QuestionairController() : super(Questionair());
 
   // プレイヤーの追加（名前は指定しない)
-  void addPlayer() {
+  void addPlayer({required String playerName}) {
     final currentState = state;
     // toList()コマンドを使って値を格納する
-    final players = currentState.players.toList()..add('');
+    final players = currentState.players.toList()..add(playerName);
     // 上で得た値をcopyWithで代入する
     state = currentState.copyWith(players: players);
   }

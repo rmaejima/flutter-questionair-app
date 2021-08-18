@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:questionair_app/views/screens/q1.dart';
+import 'package:questionair_app/views/screens/player_select_screen.dart';
 
-class Top extends StatelessWidget {
+class TopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +25,7 @@ class Top extends StatelessWidget {
               context,
               MaterialPageRoute<void>(
                 builder: (context) {
-                  return Q1();
+                  return PlayerSelectScreen();
                 },
               ),
             );
