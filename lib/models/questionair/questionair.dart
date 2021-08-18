@@ -4,9 +4,10 @@ part 'questionair.freezed.dart';
 
 @freezed
 abstract class Questionair with _$Questionair {
-  // int?などにしないとfreezedを生成されない問題を解決したい
   const factory Questionair({
-    @Default('') String param,
-    @Default(0) int category,
+    @Default(1) int playerNum,
+    @Default([]) List<String> player,
+    @Default([]) List<String> alcohol,
+    @Default([]) List<int> amount,
   }) = _Questionair;
 }

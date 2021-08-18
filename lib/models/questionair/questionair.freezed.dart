@@ -16,10 +16,16 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$QuestionairTearOff {
   const _$QuestionairTearOff();
 
-  _Questionair call({String param = '', int category = 0}) {
+  _Questionair call(
+      {int playerNum = 1,
+      List<String> player = const [],
+      List<String> alcohol = const [],
+      List<int> amount = const []}) {
     return _Questionair(
-      param: param,
-      category: category,
+      playerNum: playerNum,
+      player: player,
+      alcohol: alcohol,
+      amount: amount,
     );
   }
 }
@@ -29,8 +35,10 @@ const $Questionair = _$QuestionairTearOff();
 
 /// @nodoc
 mixin _$Questionair {
-  String get param => throw _privateConstructorUsedError;
-  int get category => throw _privateConstructorUsedError;
+  int get playerNum => throw _privateConstructorUsedError;
+  List<String> get player => throw _privateConstructorUsedError;
+  List<String> get alcohol => throw _privateConstructorUsedError;
+  List<int> get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $QuestionairCopyWith<Questionair> get copyWith =>
@@ -42,7 +50,11 @@ abstract class $QuestionairCopyWith<$Res> {
   factory $QuestionairCopyWith(
           Questionair value, $Res Function(Questionair) then) =
       _$QuestionairCopyWithImpl<$Res>;
-  $Res call({String param, int category});
+  $Res call(
+      {int playerNum,
+      List<String> player,
+      List<String> alcohol,
+      List<int> amount});
 }
 
 /// @nodoc
@@ -55,18 +67,28 @@ class _$QuestionairCopyWithImpl<$Res> implements $QuestionairCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? param = freezed,
-    Object? category = freezed,
+    Object? playerNum = freezed,
+    Object? player = freezed,
+    Object? alcohol = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_value.copyWith(
-      param: param == freezed
-          ? _value.param
-          : param // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
+      playerNum: playerNum == freezed
+          ? _value.playerNum
+          : playerNum // ignore: cast_nullable_to_non_nullable
               as int,
+      player: player == freezed
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      alcohol: alcohol == freezed
+          ? _value.alcohol
+          : alcohol // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as List<int>,
     ));
   }
 }
@@ -78,7 +100,11 @@ abstract class _$QuestionairCopyWith<$Res>
           _Questionair value, $Res Function(_Questionair) then) =
       __$QuestionairCopyWithImpl<$Res>;
   @override
-  $Res call({String param, int category});
+  $Res call(
+      {int playerNum,
+      List<String> player,
+      List<String> alcohol,
+      List<int> amount});
 }
 
 /// @nodoc
@@ -93,18 +119,28 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? param = freezed,
-    Object? category = freezed,
+    Object? playerNum = freezed,
+    Object? player = freezed,
+    Object? alcohol = freezed,
+    Object? amount = freezed,
   }) {
     return _then(_Questionair(
-      param: param == freezed
-          ? _value.param
-          : param // ignore: cast_nullable_to_non_nullable
-              as String,
-      category: category == freezed
-          ? _value.category
-          : category // ignore: cast_nullable_to_non_nullable
+      playerNum: playerNum == freezed
+          ? _value.playerNum
+          : playerNum // ignore: cast_nullable_to_non_nullable
               as int,
+      player: player == freezed
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      alcohol: alcohol == freezed
+          ? _value.alcohol
+          : alcohol // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as List<int>,
     ));
   }
 }
@@ -112,36 +148,53 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Questionair implements _Questionair {
-  const _$_Questionair({this.param = '', this.category = 0});
+  const _$_Questionair(
+      {this.playerNum = 1,
+      this.player = const [],
+      this.alcohol = const [],
+      this.amount = const []});
 
-  @JsonKey(defaultValue: '')
+  @JsonKey(defaultValue: 1)
   @override
-  final String param;
-  @JsonKey(defaultValue: 0)
+  final int playerNum;
+  @JsonKey(defaultValue: const [])
   @override
-  final int category;
+  final List<String> player;
+  @JsonKey(defaultValue: const [])
+  @override
+  final List<String> alcohol;
+  @JsonKey(defaultValue: const [])
+  @override
+  final List<int> amount;
 
   @override
   String toString() {
-    return 'Questionair(param: $param, category: $category)';
+    return 'Questionair(playerNum: $playerNum, player: $player, alcohol: $alcohol, amount: $amount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other is _Questionair &&
-            (identical(other.param, param) ||
-                const DeepCollectionEquality().equals(other.param, param)) &&
-            (identical(other.category, category) ||
+            (identical(other.playerNum, playerNum) ||
                 const DeepCollectionEquality()
-                    .equals(other.category, category)));
+                    .equals(other.playerNum, playerNum)) &&
+            (identical(other.player, player) ||
+                const DeepCollectionEquality().equals(other.player, player)) &&
+            (identical(other.alcohol, alcohol) ||
+                const DeepCollectionEquality()
+                    .equals(other.alcohol, alcohol)) &&
+            (identical(other.amount, amount) ||
+                const DeepCollectionEquality().equals(other.amount, amount)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(param) ^
-      const DeepCollectionEquality().hash(category);
+      const DeepCollectionEquality().hash(playerNum) ^
+      const DeepCollectionEquality().hash(player) ^
+      const DeepCollectionEquality().hash(alcohol) ^
+      const DeepCollectionEquality().hash(amount);
 
   @JsonKey(ignore: true)
   @override
@@ -150,12 +203,20 @@ class _$_Questionair implements _Questionair {
 }
 
 abstract class _Questionair implements Questionair {
-  const factory _Questionair({String param, int category}) = _$_Questionair;
+  const factory _Questionair(
+      {int playerNum,
+      List<String> player,
+      List<String> alcohol,
+      List<int> amount}) = _$_Questionair;
 
   @override
-  String get param => throw _privateConstructorUsedError;
+  int get playerNum => throw _privateConstructorUsedError;
   @override
-  int get category => throw _privateConstructorUsedError;
+  List<String> get player => throw _privateConstructorUsedError;
+  @override
+  List<String> get alcohol => throw _privateConstructorUsedError;
+  @override
+  List<int> get amount => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$QuestionairCopyWith<_Questionair> get copyWith =>

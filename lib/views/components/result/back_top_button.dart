@@ -19,8 +19,8 @@ class BackTopButton extends HookWidget {
         ),
       ),
       onPressed: () {
-        _questionairController.resetParam();
-        _questionairController.resetCategory();
+        // _questionairController.resetParam();
+        // _questionairController.resetCategory();
         Navigator.push(
           context,
           MaterialPageRoute<void>(
