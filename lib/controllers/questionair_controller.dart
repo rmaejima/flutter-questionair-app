@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:questionair_app/models/questionair/questionair.dart';
 import 'package:state_notifier/state_notifier.dart';
 
@@ -6,7 +5,6 @@ class QuestionairController extends StateNotifier<Questionair> {
   // 本来であれば、ロジックのみ（更新を画面に反映する必要のない変数Loadingなど）を保持し、コンストラクタに入れ込む
   QuestionairController() : super(Questionair());
 
-  // プレイヤーの追加（名前は指定しない)
   void addPlayer({required String playerName}) {
     final currentState = state;
     // toList()コマンドを使って値を格納する
@@ -15,26 +13,15 @@ class QuestionairController extends StateNotifier<Questionair> {
     state = currentState.copyWith(players: players);
   }
 
-  // プレイヤーの名前を設定
-  void setPlayerName(String name, int i) {
+  void addAlcohol({required String alcohol}) {
     final currentState = state;
-    final playersName = currentState.players.toList()..replaceRange(i, i, [name]);
-    state = state.copyWith(players: playersName);
+    final newAlcohol = currentState.alcohol.toList()..add(alcohol);
+    state = currentState.copyWith(alcohol: newAlcohol);
   }
 
-  // void setParam(String value) {
-  //   state = state.copyWith(param: state.param + ' ' + value);
-  // }
-
-  // void resetParam() {
-  //   state = state.copyWith(param: '');
-  // }
-
-  // void setCategory(int value) {
-  //   state = state.copyWith(category: value);
-  // }
-
-  // void resetCategory() {
-  //   state = state.copyWith(category: 0);
-  // }
+  void addAmount({required String amount}) {
+    final currentState = state;
+    final newAmount = currentState.amount.toList()..add(amount);
+    state = currentState.copyWith(amount: newAmount);
+  }
 }

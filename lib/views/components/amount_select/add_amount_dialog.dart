@@ -3,14 +3,15 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:questionair_app/providers/questionair_provider.dart';
 
-class AddPlayerDialog extends HookWidget {
+// プレイヤー選択と共通化しても良さそう
+class AddAmountDialog extends HookWidget {
   @override
   Widget build(BuildContext context) {
     var _textFieldController = TextEditingController();
-    final _playersController = useProvider(questionairProvider.notifier);
+    final _amountController = useProvider(questionairProvider.notifier);
 
     return AlertDialog(
-      title: Text('誰が参加するの？'),
+      title: Text('どれくらい飲むの？'),
       content: TextField(
         controller: _textFieldController,
         decoration: InputDecoration(
@@ -29,7 +30,7 @@ class AddPlayerDialog extends HookWidget {
         TextButton(
           child: const Text('OK'),
           onPressed: () {
-            _playersController.addPlayer(playerName: _textFieldController.text);
+            _amountController.addAmount(amount: _textFieldController.text);
             Navigator.of(context).pop();
           },
         ),
