@@ -36,7 +36,7 @@ class AddListDialog extends HookWidget {
   @override
   Widget build(BuildContext context) {
     var _textFieldController = TextEditingController();
-    final _controller = useProvider(questionairProvider.notifier);
+    final _controller = useProvider(questionaireProvider.notifier);
 
     return AlertDialog(
       title: Text(dialog.title),

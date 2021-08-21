@@ -32,7 +32,7 @@ class AlcoholSelectScreen extends StatelessWidget {
 class _AlcoholList extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final _alcoholState = useProvider(questionairProvider.select((value) => value));
+    final _alcoholState = useProvider(questionaireProvider.select((value) => value));
 
     return ListView.builder(
       itemCount: _alcoholState.alcohol.length,

@@ -32,7 +32,7 @@ class AmountSelectScreen extends StatelessWidget {
 class _AmountList extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final _amountState = useProvider(questionairProvider.select((value) => value));
+    final _amountState = useProvider(questionaireProvider.select((value) => value));
 
     return ListView.builder(
       itemCount: _amountState.amount.length,

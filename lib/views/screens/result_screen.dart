@@ -17,7 +17,7 @@ class ResultScreen extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _questionairState = useProvider(questionairProvider.select((value) => value));
+    final _questionairState = useProvider(questionaireProvider.select((value) => value));
     final _selectedValuesController = useProvider(selectedValuesProvider.notifier);
     final _selectedValuesState = useProvider(selectedValuesProvider.select((value) => value));
 
