@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:questionair_app/models/questionair/questionair.dart';
 
 import 'package:questionair_app/providers/questionair_provider.dart';
 import 'package:questionair_app/views/components/common/button/next_page_float_button.dart';
@@ -38,11 +39,14 @@ class _PlayerList extends HookWidget {
     return ListView.builder(
       itemCount: _playersState.players.length,
       itemBuilder: (context, index) {
-        return Card(
-          // それぞれの名前を表示
-          child: Text(_playersState.players[index]),
-        );
+        return _buildListTile(_playersState, index);
       },
+    );
+  }
+
+  Widget _buildListTile(Questionair _playersState, int index) {
+    return ListTile(
+      title: Text(_playersState.players[index]),
     );
   }
 }
