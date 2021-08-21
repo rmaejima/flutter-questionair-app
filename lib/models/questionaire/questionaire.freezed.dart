@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'questionair.dart';
+part of 'questionaire.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,14 +13,14 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-class _$QuestionairTearOff {
-  const _$QuestionairTearOff();
+class _$QuestionaireTearOff {
+  const _$QuestionaireTearOff();
 
-  _Questionair call(
+  _Questionaire call(
       {List<String> players = const [],
       List<String> alcohol = const [],
       List<String> amount = const []}) {
-    return _Questionair(
+    return _Questionaire(
       players: players,
       alcohol: alcohol,
       amount: amount,
@@ -29,34 +29,34 @@ class _$QuestionairTearOff {
 }
 
 /// @nodoc
-const $Questionair = _$QuestionairTearOff();
+const $Questionaire = _$QuestionaireTearOff();
 
 /// @nodoc
-mixin _$Questionair {
+mixin _$Questionaire {
   List<String> get players => throw _privateConstructorUsedError;
   List<String> get alcohol => throw _privateConstructorUsedError;
   List<String> get amount => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $QuestionairCopyWith<Questionair> get copyWith =>
+  $QuestionaireCopyWith<Questionaire> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $QuestionairCopyWith<$Res> {
-  factory $QuestionairCopyWith(
-          Questionair value, $Res Function(Questionair) then) =
-      _$QuestionairCopyWithImpl<$Res>;
+abstract class $QuestionaireCopyWith<$Res> {
+  factory $QuestionaireCopyWith(
+          Questionaire value, $Res Function(Questionaire) then) =
+      _$QuestionaireCopyWithImpl<$Res>;
   $Res call({List<String> players, List<String> alcohol, List<String> amount});
 }
 
 /// @nodoc
-class _$QuestionairCopyWithImpl<$Res> implements $QuestionairCopyWith<$Res> {
-  _$QuestionairCopyWithImpl(this._value, this._then);
+class _$QuestionaireCopyWithImpl<$Res> implements $QuestionaireCopyWith<$Res> {
+  _$QuestionaireCopyWithImpl(this._value, this._then);
 
-  final Questionair _value;
+  final Questionaire _value;
   // ignore: unused_field
-  final $Res Function(Questionair) _then;
+  final $Res Function(Questionaire) _then;
 
   @override
   $Res call({
@@ -82,24 +82,24 @@ class _$QuestionairCopyWithImpl<$Res> implements $QuestionairCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$QuestionairCopyWith<$Res>
-    implements $QuestionairCopyWith<$Res> {
-  factory _$QuestionairCopyWith(
-          _Questionair value, $Res Function(_Questionair) then) =
-      __$QuestionairCopyWithImpl<$Res>;
+abstract class _$QuestionaireCopyWith<$Res>
+    implements $QuestionaireCopyWith<$Res> {
+  factory _$QuestionaireCopyWith(
+          _Questionaire value, $Res Function(_Questionaire) then) =
+      __$QuestionaireCopyWithImpl<$Res>;
   @override
   $Res call({List<String> players, List<String> alcohol, List<String> amount});
 }
 
 /// @nodoc
-class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
-    implements _$QuestionairCopyWith<$Res> {
-  __$QuestionairCopyWithImpl(
-      _Questionair _value, $Res Function(_Questionair) _then)
-      : super(_value, (v) => _then(v as _Questionair));
+class __$QuestionaireCopyWithImpl<$Res> extends _$QuestionaireCopyWithImpl<$Res>
+    implements _$QuestionaireCopyWith<$Res> {
+  __$QuestionaireCopyWithImpl(
+      _Questionaire _value, $Res Function(_Questionaire) _then)
+      : super(_value, (v) => _then(v as _Questionaire));
 
   @override
-  _Questionair get _value => super._value as _Questionair;
+  _Questionaire get _value => super._value as _Questionaire;
 
   @override
   $Res call({
@@ -107,7 +107,7 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
     Object? alcohol = freezed,
     Object? amount = freezed,
   }) {
-    return _then(_Questionair(
+    return _then(_Questionaire(
       players: players == freezed
           ? _value.players
           : players // ignore: cast_nullable_to_non_nullable
@@ -126,8 +126,8 @@ class __$QuestionairCopyWithImpl<$Res> extends _$QuestionairCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Questionair implements _Questionair {
-  const _$_Questionair(
+class _$_Questionaire implements _Questionaire {
+  const _$_Questionaire(
       {this.players = const [],
       this.alcohol = const [],
       this.amount = const []});
@@ -144,13 +144,13 @@ class _$_Questionair implements _Questionair {
 
   @override
   String toString() {
-    return 'Questionair(players: $players, alcohol: $alcohol, amount: $amount)';
+    return 'Questionaire(players: $players, alcohol: $alcohol, amount: $amount)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Questionair &&
+        (other is _Questionaire &&
             (identical(other.players, players) ||
                 const DeepCollectionEquality()
                     .equals(other.players, players)) &&
@@ -170,15 +170,15 @@ class _$_Questionair implements _Questionair {
 
   @JsonKey(ignore: true)
   @override
-  _$QuestionairCopyWith<_Questionair> get copyWith =>
-      __$QuestionairCopyWithImpl<_Questionair>(this, _$identity);
+  _$QuestionaireCopyWith<_Questionaire> get copyWith =>
+      __$QuestionaireCopyWithImpl<_Questionaire>(this, _$identity);
 }
 
-abstract class _Questionair implements Questionair {
-  const factory _Questionair(
+abstract class _Questionaire implements Questionaire {
+  const factory _Questionaire(
       {List<String> players,
       List<String> alcohol,
-      List<String> amount}) = _$_Questionair;
+      List<String> amount}) = _$_Questionaire;
 
   @override
   List<String> get players => throw _privateConstructorUsedError;
@@ -188,6 +188,6 @@ abstract class _Questionair implements Questionair {
   List<String> get amount => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$QuestionairCopyWith<_Questionair> get copyWith =>
+  _$QuestionaireCopyWith<_Questionaire> get copyWith =>
       throw _privateConstructorUsedError;
 }

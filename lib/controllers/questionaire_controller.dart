@@ -1,9 +1,9 @@
-import 'package:questionair_app/models/questionair/questionair.dart';
+import 'package:questionair_app/models/questionaire/questionaire.dart';
 import 'package:state_notifier/state_notifier.dart';
 
-class QuestionairController extends StateNotifier<Questionair> {
+class QuestionairController extends StateNotifier<Questionaire> {
   // 本来であれば、ロジックのみ（更新を画面に反映する必要のない変数Loadingなど）を保持し、コンストラクタに入れ込む
-  QuestionairController() : super(Questionair());
+  QuestionairController() : super(Questionaire());
 
   void addPlayer({required String playerName}) {
     final currentState = state;

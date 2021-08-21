@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:questionair_app/models/questionair/questionair.dart';
+import 'package:questionair_app/models/questionaire/questionaire.dart';
 
-import 'package:questionair_app/providers/questionair_provider.dart';
+import 'package:questionair_app/providers/questionaire_provider.dart';
 import 'package:questionair_app/views/components/common/button/next_page_float_button.dart';
 import 'package:questionair_app/views/components/common/button/show_dialog_button.dart';
 import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
@@ -44,7 +44,7 @@ class _PlayerList extends HookWidget {
     );
   }
 
-  Widget _buildListTile(Questionair _playersState, int index) {
+  Widget _buildListTile(Questionaire _playersState, int index) {
     return ListTile(
       title: Text(_playersState.players[index]),
     );

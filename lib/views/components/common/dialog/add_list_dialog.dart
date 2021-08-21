@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:questionair_app/providers/questionair_provider.dart';
+import 'package:questionair_app/providers/questionaire_provider.dart';
 
 enum AddDialog { player, alcohol, amount }
 
