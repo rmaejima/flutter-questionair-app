@@ -48,9 +48,17 @@ class _PlayerList extends HookWidget {
 
   Widget _buildListTile(Questionaire _playerState, QuestionaireController _playerController, int index) {
     return ListTile(
+      onTap: () {}, //タップしたら、FloatActionButtonが消えるようにする
       leading: Icon(Icons.account_circle), // 何かしらのiconに変える
       title: Text(_playerState.players[index]),
-      tileColor: Colors.amber[400],
+      tileColor: (() {
+        // 即時関数で色を制御
+        if (index < 6) {
+          return Colors.amber[100 + (index * 100)]; //後々色は差し替える
+        } else {
+          return Colors.amber[1400 - (index * 100)]; //後々色は差し替える
+        }
+      })(),
       trailing: IconButton(
         icon: Icon(Icons.delete),
         onPressed: () {
