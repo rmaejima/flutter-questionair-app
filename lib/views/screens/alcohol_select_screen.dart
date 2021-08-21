@@ -8,24 +8,14 @@ import 'package:questionair_app/views/components/common/button/show_dialog_butto
 import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/amount_select_screen.dart';
 
-class AlcoholSelectScreen extends HookWidget {
+class AlcoholSelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _alcoholState = useProvider(questionairProvider.select((value) => value));
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Alcohol List'),
       ),
-      body: ListView.builder(
-        itemCount: _alcoholState.alcohol.length,
-        itemBuilder: (context, index) {
-          return Card(
-            // それぞれの名前を表示
-            child: Text(_alcoholState.alcohol[index]),
-          );
-        },
-      ),
+      body: _AlcoholList(),
       floatingActionButton: Column(
         verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
         mainAxisSize: MainAxisSize.min,
@@ -35,6 +25,23 @@ class AlcoholSelectScreen extends HookWidget {
           ShowDialogButton(dialog: AddListDialog(AddDialog.alcohol)),
         ],
       ),
+    );
+  }
+}
+
+class _AlcoholList extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final _alcoholState = useProvider(questionairProvider.select((value) => value));
+
+    return ListView.builder(
+      itemCount: _alcoholState.alcohol.length,
+      itemBuilder: (context, index) {
+        return Card(
+          // それぞれの名前を表示
+          child: Text(_alcoholState.alcohol[index]),
+        );
+      },
     );
   }
 }

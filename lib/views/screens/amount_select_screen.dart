@@ -8,24 +8,14 @@ import 'package:questionair_app/views/components/common/button/show_dialog_butto
 import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/result_screen.dart';
 
-class AmountSelectScreen extends HookWidget {
+class AmountSelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final _amountState = useProvider(questionairProvider.select((value) => value));
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Amount List'),
       ),
-      body: ListView.builder(
-        itemCount: _amountState.amount.length,
-        itemBuilder: (context, index) {
-          return Card(
-            // それぞれの名前を表示
-            child: Text(_amountState.amount[index]),
-          );
-        },
-      ),
+      body: _AmountList(),
       floatingActionButton: Column(
         verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
         mainAxisSize: MainAxisSize.min,
@@ -35,6 +25,23 @@ class AmountSelectScreen extends HookWidget {
           ShowDialogButton(dialog: AddListDialog(AddDialog.amount)),
         ],
       ),
+    );
+  }
+}
+
+class _AmountList extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final _amountState = useProvider(questionairProvider.select((value) => value));
+
+    return ListView.builder(
+      itemCount: _amountState.amount.length,
+      itemBuilder: (context, index) {
+        return Card(
+          // それぞれの名前を表示
+          child: Text(_amountState.amount[index]),
+        );
+      },
     );
   }
 }

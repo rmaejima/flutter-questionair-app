@@ -9,25 +9,14 @@ import 'package:questionair_app/views/components/common/button/show_dialog_butto
 import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/alcohol_select_screen.dart';
 
-class PlayerSelectScreen extends HookWidget {
+class PlayerSelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // プレイヤー追加と名前設定を行うコントローラーとステート
-    final _playersState = useProvider(questionairProvider.select((value) => value));
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Player List'),
       ),
-      body: ListView.builder(
-        itemCount: _playersState.players.length,
-        itemBuilder: (context, index) {
-          return Card(
-            // それぞれの名前を表示
-            child: Text(_playersState.players[index]),
-          );
-        },
-      ),
+      body: _PlayerList(),
       floatingActionButton: Column(
         verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
         mainAxisSize: MainAxisSize.min,
@@ -37,6 +26,23 @@ class PlayerSelectScreen extends HookWidget {
           ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
         ],
       ),
+    );
+  }
+}
+
+class _PlayerList extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final _playersState = useProvider(questionairProvider.select((value) => value));
+
+    return ListView.builder(
+      itemCount: _playersState.players.length,
+      itemBuilder: (context, index) {
+        return Card(
+          // それぞれの名前を表示
+          child: Text(_playersState.players[index]),
+        );
+      },
     );
   }
 }
