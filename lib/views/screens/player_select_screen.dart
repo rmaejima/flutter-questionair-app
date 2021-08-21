@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:questionair_app/providers/questionair_provider.dart';
 import 'package:questionair_app/views/components/common/button/next_page_float_button.dart';
+import 'package:questionair_app/views/components/common/button/show_dialog_button.dart';
 import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/alcohol_select_screen.dart';
 
@@ -12,7 +13,6 @@ class PlayerSelectScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
     // プレイヤー追加と名前設定を行うコントローラーとステート
-    // final _playersController = useProvider(questionairProvider.notifier);
     final _playersState = useProvider(questionairProvider.select((value) => value));
 
     return Scaffold(
@@ -34,12 +34,7 @@ class PlayerSelectScreen extends HookWidget {
         children: [
           NextPageFloatButton(nextWidget: AlcoholSelectScreen()),
           const SizedBox(height: 30),
-          FloatingActionButton(
-            // プレイヤーを追加
-            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddListDialog(AddDialog.player)),
-            tooltip: 'Increment',
-            child: Icon(Icons.add),
-          ),
+          ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
         ],
       ),
     );

@@ -4,13 +4,13 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:questionair_app/providers/questionair_provider.dart';
 import 'package:questionair_app/views/components/common/button/next_page_float_button.dart';
+import 'package:questionair_app/views/components/common/button/show_dialog_button.dart';
 import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/result_screen.dart';
 
 class AmountSelectScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    // final _amountController = useProvider(questionairProvider.notifier);
     final _amountState = useProvider(questionairProvider.select((value) => value));
 
     return Scaffold(
@@ -32,12 +32,7 @@ class AmountSelectScreen extends HookWidget {
         children: [
           NextPageFloatButton(nextWidget: ResultScreen()),
           const SizedBox(height: 30),
-          FloatingActionButton(
-            // プレイヤーを追加
-            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddListDialog(AddDialog.amount)),
-            tooltip: 'Increment',
-            child: Icon(Icons.add),
-          ),
+          ShowDialogButton(dialog: AddListDialog(AddDialog.amount)),
         ],
       ),
     );

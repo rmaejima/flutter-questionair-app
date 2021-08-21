@@ -4,13 +4,13 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:questionair_app/providers/questionair_provider.dart';
 import 'package:questionair_app/views/components/common/button/next_page_float_button.dart';
+import 'package:questionair_app/views/components/common/button/show_dialog_button.dart';
 import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/amount_select_screen.dart';
 
 class AlcoholSelectScreen extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    // final _alcoholController = useProvider(questionairProvider.notifier);
     final _alcoholState = useProvider(questionairProvider.select((value) => value));
 
     return Scaffold(
@@ -32,12 +32,7 @@ class AlcoholSelectScreen extends HookWidget {
         children: [
           NextPageFloatButton(nextWidget: AmountSelectScreen()),
           const SizedBox(height: 30),
-          FloatingActionButton(
-            // プレイヤーを追加
-            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddListDialog(AddDialog.alcohol)),
-            tooltip: 'Increment',
-            child: Icon(Icons.add),
-          ),
+          ShowDialogButton(dialog: AddListDialog(AddDialog.alcohol)),
         ],
       ),
     );
