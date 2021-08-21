@@ -5,19 +5,23 @@ class QuestionairController extends StateNotifier<Questionair> {
   // 本来であれば、ロジックのみ（更新を画面に反映する必要のない変数Loadingなど）を保持し、コンストラクタに入れ込む
   QuestionairController() : super(Questionair());
 
-  void setParam(String value) {
-    state = state.copyWith(param: state.param + ' ' + value);
+  void addPlayer({required String playerName}) {
+    final currentState = state;
+    // toList()コマンドを使って値を格納する
+    final players = currentState.players.toList()..add(playerName);
+    // 上で得た値をcopyWithで代入する
+    state = currentState.copyWith(players: players);
   }
 
-  void resetParam() {
-    state = state.copyWith(param: '');
+  void addAlcohol({required String alcohol}) {
+    final currentState = state;
+    final newAlcohol = currentState.alcohol.toList()..add(alcohol);
+    state = currentState.copyWith(alcohol: newAlcohol);
   }
 
-  void setCategory(int value) {
-    state = state.copyWith(category: value);
-  }
-
-  void resetCategory() {
-    state = state.copyWith(category: 0);
+  void addAmount({required String amount}) {
+    final currentState = state;
+    final newAmount = currentState.amount.toList()..add(amount);
+    state = currentState.copyWith(amount: newAmount);
   }
 }
