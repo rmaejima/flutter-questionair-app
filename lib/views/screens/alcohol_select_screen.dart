@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:questionair_app/providers/questionair_provider.dart';
-import 'package:questionair_app/views/components/common/add_list_dialog.dart';
+import 'package:questionair_app/views/components/common/button/next_page_float_button.dart';
+import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/amount_select_screen.dart';
 
 class AlcoholSelectScreen extends HookWidget {
@@ -29,19 +30,7 @@ class AlcoholSelectScreen extends HookWidget {
         verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
         mainAxisSize: MainAxisSize.min,
         children: [
-          FloatingActionButton(
-            // 次の画面に遷移
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AmountSelectScreen(),
-                ),
-              );
-            },
-            tooltip: 'Increment',
-            child: Text('次へ'), //tbd
-          ),
+          NextPageFloatButton(nextWidget: AmountSelectScreen()),
           const SizedBox(height: 30),
           FloatingActionButton(
             // プレイヤーを追加
