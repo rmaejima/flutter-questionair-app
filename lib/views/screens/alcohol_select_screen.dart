@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:questionair_app/providers/questionair_provider.dart';
-import 'package:questionair_app/views/components/alcohol_select/add_alcohol_dialog.dart';
+import 'package:questionair_app/views/components/common/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/amount_select_screen.dart';
 
 class AlcoholSelectScreen extends HookWidget {
@@ -22,7 +22,6 @@ class AlcoholSelectScreen extends HookWidget {
           return Card(
             // それぞれの名前を表示
             child: Text(_alcoholState.alcohol[index]),
-            // child: Text('あいうえお'),
           );
         },
       ),
@@ -46,7 +45,7 @@ class AlcoholSelectScreen extends HookWidget {
           const SizedBox(height: 30),
           FloatingActionButton(
             // プレイヤーを追加
-            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddAlcoholDialog()),
+            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddListDialog(AddDialog.alcohol)),
             tooltip: 'Increment',
             child: Icon(Icons.add),
           ),

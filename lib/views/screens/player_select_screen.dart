@@ -4,7 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'package:questionair_app/providers/questionair_provider.dart';
-import 'package:questionair_app/views/components/player_select/add_player_dialog.dart';
+import 'package:questionair_app/views/components/common/add_list_dialog.dart';
 import 'package:questionair_app/views/screens/alcohol_select_screen.dart';
 
 class PlayerSelectScreen extends HookWidget {
@@ -48,7 +48,7 @@ class PlayerSelectScreen extends HookWidget {
           const SizedBox(height: 30),
           FloatingActionButton(
             // プレイヤーを追加
-            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddPlayerDialog()),
+            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddListDialog(AddDialog.player)),
             tooltip: 'Increment',
             child: Icon(Icons.add),
           ),
