@@ -15,7 +15,7 @@ class AddAlcoholDialog extends HookWidget {
       content: TextField(
         controller: _textFieldController,
         decoration: InputDecoration(
-          hintText: 'Name',
+          hintText: 'ウイスキーロック',
         ),
         autofocus: true,
         keyboardType: TextInputType.name,

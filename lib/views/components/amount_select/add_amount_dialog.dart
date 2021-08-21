@@ -15,7 +15,7 @@ class AddAmountDialog extends HookWidget {
       content: TextField(
         controller: _textFieldController,
         decoration: InputDecoration(
-          hintText: 'Name',
+          hintText: '3杯',
         ),
         autofocus: true,
         keyboardType: TextInputType.name,

@@ -14,7 +14,7 @@ class AddPlayerDialog extends HookWidget {
       content: TextField(
         controller: _textFieldController,
         decoration: InputDecoration(
-          hintText: 'Name',
+          hintText: '酒好太郎',
         ),
         autofocus: true,
         keyboardType: TextInputType.name,
