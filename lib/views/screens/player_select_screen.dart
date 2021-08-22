@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:questionair_app/controllers/questionaire_controller.dart';
-import 'package:questionair_app/models/questionaire/questionaire.dart';
+import 'package:nomin/controllers/questionaire_controller.dart';
+import 'package:nomin/models/questionaire/questionaire.dart';
 
-import 'package:questionair_app/providers/questionaire_provider.dart';
-import 'package:questionair_app/views/components/common/button/next_page_float_button.dart';
-import 'package:questionair_app/views/components/common/button/show_dialog_button.dart';
-import 'package:questionair_app/views/components/common/dialog/add_list_dialog.dart';
-import 'package:questionair_app/views/screens/alcohol_select_screen.dart';
+import 'package:nomin/providers/questionaire_provider.dart';
+import 'package:nomin/views/components/common/button/next_page_float_button.dart';
+import 'package:nomin/views/components/common/button/show_dialog_button.dart';
+import 'package:nomin/views/components/common/dialog/add_list_dialog.dart';
+import 'package:nomin/views/screens/alcohol_select_screen.dart';
 
 class PlayerSelectScreen extends StatelessWidget {
   @override

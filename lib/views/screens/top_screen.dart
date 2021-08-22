@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:questionair_app/views/screens/player_select_screen.dart';
+import 'package:nomin/views/screens/player_select_screen.dart';
 
 class TopScreen extends StatelessWidget {
   @override

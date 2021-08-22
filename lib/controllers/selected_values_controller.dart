@@ -1,4 +1,4 @@
-import 'package:questionair_app/models/selected_values/selected_values.dart';
+import 'package:nomin/models/selected_values/selected_values.dart';
 import 'package:state_notifier/state_notifier.dart';
 
 class SelectedValuesController extends StateNotifier<SelectedValues> {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'package:questionair_app/views/screens/top_screen.dart';
+import 'package:nomin/views/screens/top_screen.dart';
 
 void main() {
   runApp(

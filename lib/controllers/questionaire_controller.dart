@@ -1,4 +1,4 @@
-import 'package:questionair_app/models/questionaire/questionaire.dart';
+import 'package:nomin/models/questionaire/questionaire.dart';
 import 'package:state_notifier/state_notifier.dart';
 
 class QuestionaireController extends StateNotifier<Questionaire> {
