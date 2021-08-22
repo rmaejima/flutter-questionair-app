@@ -19,14 +19,21 @@ class PlayerSelectScreen extends StatelessWidget {
         title: Text('Player List'),
       ),
       body: _PlayerList(),
-      floatingActionButton: Column(
-        verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          NextPageFloatButton(nextWidget: AlcoholSelectScreen()),
-          const SizedBox(height: 30),
-          ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
-        ],
+      floatingActionButton: IgnorePointer(
+        ignoring: true, // trueで当たり判定を無視
+        child: AnimatedOpacity(
+          opacity: 0.5,
+          duration: Duration(microseconds: 200),
+          child: Column(
+            verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              NextPageFloatButton(nextWidget: AlcoholSelectScreen()),
+              const SizedBox(height: 30),
+              ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
+            ],
+          ),
+        ),
       ),
     );
   }
