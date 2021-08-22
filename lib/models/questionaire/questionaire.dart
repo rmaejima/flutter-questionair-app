@@ -1,12 +1,12 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'questionair.freezed.dart';
+part 'questionaire.freezed.dart';
 
 @freezed
-abstract class Questionair with _$Questionair {
-  const factory Questionair({
+abstract class Questionaire with _$Questionaire {
+  const factory Questionaire({
     @Default([]) List<String> players,
     @Default([]) List<String> alcohol,
     @Default([]) List<String> amount,
-  }) = _Questionair;
+  }) = _Questionaire;
 }

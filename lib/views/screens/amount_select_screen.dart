@@ -2,56 +2,46 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:questionair_app/providers/questionair_provider.dart';
-import 'package:questionair_app/views/components/amount_select/add_amount_dialog.dart';
-import 'package:questionair_app/views/screens/result_screen.dart';
+import 'package:nomin/providers/questionaire_provider.dart';
+import 'package:nomin/views/components/common/button/next_page_float_button.dart';
+import 'package:nomin/views/components/common/button/show_dialog_button.dart';
+import 'package:nomin/views/components/common/dialog/add_list_dialog.dart';
+import 'package:nomin/views/screens/result_screen.dart';
 
-class AmountSelectScreen extends HookWidget {
+class AmountSelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final _amountController = useProvider(questionairProvider.notifier);
-    final _amountState = useProvider(questionairProvider.select((value) => value));
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Amount List'),
       ),
-      body: ListView.builder(
-        itemCount: _amountState.amount.length,
-        itemBuilder: (context, index) {
-          return Card(
-            // それぞれの名前を表示
-            child: Text(_amountState.amount[index]),
-            // child: Text('あいうえお'),
-          );
-        },
-      ),
+      body: _AmountList(),
       floatingActionButton: Column(
         verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
         mainAxisSize: MainAxisSize.min,
         children: [
-          FloatingActionButton(
-            // 次の画面に遷移
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ResultScreen(),
-                ),
-              );
-            },
-            tooltip: 'Increment',
-            child: Text('次へ'), //tbd
-          ),
+          NextPageFloatButton(nextWidget: ResultScreen()),
           const SizedBox(height: 30),
-          FloatingActionButton(
-            // プレイヤーを追加
-            onPressed: () => showDialog(context: context, builder: (BuildContext context) => AddAmountDialog()),
-            tooltip: 'Increment',
-            child: Icon(Icons.add),
-          ),
+          ShowDialogButton(dialog: AddListDialog(AddDialog.amount)),
         ],
       ),
+    );
+  }
+}
+
+class _AmountList extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final _amountState = useProvider(questionaireProvider.select((value) => value));
+
+    return ListView.builder(
+      itemCount: _amountState.amount.length,
+      itemBuilder: (context, index) {
+        return Card(
+          // それぞれの名前を表示
+          child: Text(_amountState.amount[index]),
+        );
+      },
     );
   }
 }
