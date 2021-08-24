@@ -11,6 +11,7 @@ import 'package:nomin/providers/questionaire_provider.dart';
 import 'package:nomin/views/components/common/button/next_page_float_button.dart';
 import 'package:nomin/views/components/common/button/show_dialog_button.dart';
 import 'package:nomin/views/components/common/dialog/add_list_dialog.dart';
+import 'package:nomin/views/components/common/list/build_list.dart';
 import 'package:nomin/views/screens/alcohol_select_screen.dart';
 
 class PlayerSelectScreen extends StatelessWidget {
@@ -20,64 +21,65 @@ class PlayerSelectScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Player List'),
       ),
-      body: _PlayerList(),
+      // body: _PlayerList(),
+      body: BuildList(PageYouOn.player),
       floatingActionButton: _FloatActionButtons(),
     );
   }
 }
 
-class _PlayerList extends HookWidget {
-  @override
-  Widget build(BuildContext context) {
-    final _playerState = useProvider(questionaireProvider.select((value) => value));
-    final _playerController = useProvider(questionaireProvider.notifier);
-    final _floatActionButtonsController = useProvider(floatActionButtonsProvider.notifier);
+// class _PlayerList extends HookWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     final _playerState = useProvider(questionaireProvider.select((value) => value));
+//     final _playerController = useProvider(questionaireProvider.notifier);
+//     final _floatActionButtonsController = useProvider(floatActionButtonsProvider.notifier);
 
-    return ListView.builder(
-      itemCount: _playerState.players.length,
-      itemBuilder: (context, index) {
-        return _buildListTile(
-          playerState: _playerState,
-          playerController: _playerController,
-          floatActionButtonController: _floatActionButtonsController,
-          index: index,
-        );
-      },
-    );
-  }
+//     return ListView.builder(
+//       itemCount: _playerState.players.length,
+//       itemBuilder: (context, index) {
+//         return _buildListTile(
+//           playerState: _playerState,
+//           playerController: _playerController,
+//           floatActionButtonController: _floatActionButtonsController,
+//           index: index,
+//         );
+//       },
+//     );
+//   }
 
-  Widget _buildListTile({
-    required Questionaire playerState,
-    required QuestionaireController playerController,
-    required FloatActionButtonsController floatActionButtonController,
-    required int index,
-  }) {
-    return ListTile(
-      onTap: () {
-        // 8人目以降のタイルが押されたときに、2秒間float action buttonを見えなくする
-        if (index > 8) {
-          floatActionButtonController.takeFlase2s();
-        }
-      },
-      leading: Icon(Icons.account_circle), // 何かしらのiconに変える
-      title: Text(playerState.players[index]),
-      tileColor: (() {
-        if (index < 6) {
-          return Colors.amber[100 + (index * 100)]; //後々色は差し替える
-        } else {
-          return Colors.amber[1400 - (index * 100)]; //後々色は差し替える
-        }
-      })(),
-      trailing: IconButton(
-        icon: Icon(Icons.delete),
-        onPressed: () {
-          // Delete player
-          playerController.deletePlayer(index: index);
-        },
-      ),
-    );
-  }
-}
+//   Widget _buildListTile({
+//     required Questionaire playerState,
+//     required QuestionaireController playerController,
+//     required FloatActionButtonsController floatActionButtonController,
+//     required int index,
+//   }) {
+//     return ListTile(
+//       onTap: () {
+//         // 8人目以降のタイルが押されたときに、2秒間float action buttonを見えなくする
+//         if (index > 8) {
+//           floatActionButtonController.takeFlase2s();
+//         }
+//       },
+//       leading: Icon(Icons.account_circle), // 何かしらのiconに変える
+//       title: Text(playerState.players[index]),
+//       tileColor: (() {
+//         if (index < 6) {
+//           return Colors.amber[100 + (index * 100)]; //後々色は差し替える
+//         } else {
+//           return Colors.amber[1400 - (index * 100)]; //後々色は差し替える
+//         }
+//       })(),
+//       trailing: IconButton(
+//         icon: Icon(Icons.delete),
+//         onPressed: () {
+//           // Delete player
+//           playerController.deletePlayer(index: index);
+//         },
+//       ),
+//     );
+//   }
+// }
 
 class _FloatActionButtons extends HookWidget {
   @override
