@@ -88,10 +88,10 @@ class BuildList extends HookWidget {
               controller.deletePlayer(index: index);
               break;
             case (PageYouOn.alcohol):
-              //  controller.deleteAlcohol(index: index);
+              controller.deleteAlcohol(index: index);
               break;
             case (PageYouOn.amount):
-              // controller.deletePlayer(index: index);
+              controller.deleteAmount(index: index);
               break;
             default:
               break;
