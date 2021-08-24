@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:nomin/controllers/float_action_buttons_controller.dart';
 import 'package:nomin/controllers/questionaire_controller.dart';
 import 'package:nomin/models/questionaire/questionaire.dart';
+import 'package:nomin/providers/float_action_buttons_controller.dart';
 
 import 'package:nomin/providers/questionaire_provider.dart';
 import 'package:nomin/views/components/common/button/next_page_float_button.dart';
@@ -19,15 +21,7 @@ class PlayerSelectScreen extends StatelessWidget {
         title: Text('Player List'),
       ),
       body: _PlayerList(),
-      floatingActionButton: Column(
-        verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          NextPageFloatButton(nextWidget: AlcoholSelectScreen()),
-          const SizedBox(height: 30),
-          ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
-        ],
-      ),
+      floatingActionButton: _FloatActionButtons(),
     );
   }
 }
@@ -37,22 +31,37 @@ class _PlayerList extends HookWidget {
   Widget build(BuildContext context) {
     final _playerState = useProvider(questionaireProvider.select((value) => value));
     final _playerController = useProvider(questionaireProvider.notifier);
+    final _floatActionButtonsController = useProvider(floatActionButtonsProvider.notifier);
 
     return ListView.builder(
       itemCount: _playerState.players.length,
       itemBuilder: (context, index) {
-        return _buildListTile(_playerState, _playerController, index);
+        return _buildListTile(
+          playerState: _playerState,
+          playerController: _playerController,
+          floatActionButtonController: _floatActionButtonsController,
+          index: index,
+        );
       },
     );
   }
 
-  Widget _buildListTile(Questionaire _playerState, QuestionaireController _playerController, int index) {
+  Widget _buildListTile({
+    required Questionaire playerState,
+    required QuestionaireController playerController,
+    required FloatActionButtonsController floatActionButtonController,
+    required int index,
+  }) {
     return ListTile(
-      onTap: () {}, //タップしたら、FloatActionButtonが消えるようにする
+      onTap: () {
+        // 8人目以降のタイルが押されたときに、2秒間float action buttonを見えなくする
+        if (index > 8) {
+          floatActionButtonController.takeFlase2s();
+        }
+      },
       leading: Icon(Icons.account_circle), // 何かしらのiconに変える
-      title: Text(_playerState.players[index]),
+      title: Text(playerState.players[index]),
       tileColor: (() {
-        // 即時関数で色を制御
         if (index < 6) {
           return Colors.amber[100 + (index * 100)]; //後々色は差し替える
         } else {
@@ -63,8 +72,32 @@ class _PlayerList extends HookWidget {
         icon: Icon(Icons.delete),
         onPressed: () {
           // Delete player
-          _playerController.deletePlayer(index: index);
+          playerController.deletePlayer(index: index);
         },
+      ),
+    );
+  }
+}
+
+class _FloatActionButtons extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final _floatActionButtonsState = useProvider(floatActionButtonsProvider.select((value) => value));
+
+    return IgnorePointer(
+      ignoring: !_floatActionButtonsState.visible, // trueで当たり判定を無視
+      child: AnimatedOpacity(
+        opacity: _floatActionButtonsState.visible ? 1.0 : 0.3,
+        duration: const Duration(milliseconds: 300),
+        child: Column(
+          verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            NextPageFloatButton(nextWidget: AlcoholSelectScreen()),
+            const SizedBox(height: 30),
+            ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
+          ],
+        ),
       ),
     );
   }

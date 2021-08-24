@@ -7,10 +7,9 @@ class ShowDialogButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return FloatingActionButton(
       onPressed: () => showDialog(context: context, builder: (BuildContext context) => dialog),
-      // onPressed: null,
-      // tooltip: 'Increment',
+      tooltip: 'Increment',
       child: Icon(Icons.add),
     );
   }
