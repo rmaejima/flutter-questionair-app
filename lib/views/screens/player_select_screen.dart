@@ -5,10 +5,12 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:nomin/constants/page_you_on.dart';
 import 'package:nomin/controllers/float_action_buttons_controller.dart';
 import 'package:nomin/controllers/questionaire_controller.dart';
+import 'package:nomin/models/float_action_buttons/float_action_buttons.dart';
 import 'package:nomin/models/questionaire/questionaire.dart';
 import 'package:nomin/providers/float_action_buttons_controller.dart';
 
 import 'package:nomin/providers/questionaire_provider.dart';
+import 'package:nomin/views/components/common/button/build_float_action_buttons.dart';
 import 'package:nomin/views/components/common/button/next_page_float_button.dart';
 import 'package:nomin/views/components/common/button/show_dialog_button.dart';
 import 'package:nomin/views/components/common/dialog/add_list_dialog.dart';
@@ -24,7 +26,7 @@ class PlayerSelectScreen extends StatelessWidget {
       ),
       // body: _PlayerList(),
       body: BuildList(PageYouOn.player),
-      floatingActionButton: _FloatActionButtons(),
+      floatingActionButton: BuildFloatActionButtons(PageYouOn.player),
     );
   }
 }
@@ -82,26 +84,26 @@ class PlayerSelectScreen extends StatelessWidget {
 //   }
 // }
 
-class _FloatActionButtons extends HookWidget {
-  @override
-  Widget build(BuildContext context) {
-    final _floatActionButtonsState = useProvider(floatActionButtonsProvider.select((value) => value));
+// class _FloatActionButtons extends HookWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     final _floatActionButtonsState = useProvider(floatActionButtonsProvider.select((value) => value));
 
-    return IgnorePointer(
-      ignoring: !_floatActionButtonsState.visible, // trueで当たり判定を無視
-      child: AnimatedOpacity(
-        opacity: _floatActionButtonsState.visible ? 1.0 : 0.3,
-        duration: const Duration(milliseconds: 300),
-        child: Column(
-          verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            NextPageFloatButton(nextWidget: AlcoholSelectScreen()),
-            const SizedBox(height: 30),
-            ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
-          ],
-        ),
-      ),
-    );
-  }
-}
+//     return IgnorePointer(
+//       ignoring: !_floatActionButtonsState.visible, // trueで当たり判定を無視
+//       child: AnimatedOpacity(
+//         opacity: _floatActionButtonsState.visible ? 1.0 : 0.3,
+//         duration: const Duration(milliseconds: 300),
+//         child: Column(
+//           verticalDirection: VerticalDirection.up, // childrenの先頭を下に配置
+//           mainAxisSize: MainAxisSize.min,
+//           children: [
+//             NextPageFloatButton(nextWidget: AlcoholSelectScreen()),
+//             const SizedBox(height: 30),
+//             ShowDialogButton(dialog: AddListDialog(AddDialog.player)),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
