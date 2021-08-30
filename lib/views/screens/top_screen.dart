@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:nomin/views/components/top/build_hop_animated_text.dart';
 
 import 'package:nomin/views/screens/player_select_screen.dart';
 
@@ -16,6 +18,10 @@ class TopScreen extends StatelessWidget {
               height: 150,
               image: AssetImage('lib/assets/images/golden-lights.png'),
             ),
+            const SizedBox(
+              height: 30,
+            ),
+            buildHopAnimatedText(text: 'ゲームを選択してください'),
             const SizedBox(
               height: 60,
             ),
