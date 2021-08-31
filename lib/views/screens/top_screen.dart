@@ -24,52 +24,37 @@ class TopScreen extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            ElevatedButton(
-              child: Text('サクッと罰ゲーム♪'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.amber,
-                onPrimary: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (context) {
-                      return PlayerSelectScreen();
-                    },
-                  ),
-                );
-              },
-            ),
+            _buildButton(context, 'サクッと罰ゲーム♪'),
             const SizedBox(
               height: 30,
             ),
-            ElevatedButton(
-              child: Text('次の罰ゲーム♬'),
-              style: ElevatedButton.styleFrom(
-                primary: Colors.amber,
-                onPrimary: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute<void>(
-                    builder: (context) {
-                      return PlayerSelectScreen();
-                    },
-                  ),
-                );
-              },
-            ),
+            _buildButton(context, '次の罰ゲーム♬'),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildButton(BuildContext context, String text) {
+    return ElevatedButton(
+      child: Text(text),
+      style: ElevatedButton.styleFrom(
+        primary: Colors.amber,
+        onPrimary: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute<void>(
+            builder: (context) {
+              return PlayerSelectScreen();
+            },
+          ),
+        );
+      },
     );
   }
 }
