@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:nomin/views/components/top/build_hop_animated_text.dart';
 
 import 'package:nomin/views/screens/player_select_screen.dart';
