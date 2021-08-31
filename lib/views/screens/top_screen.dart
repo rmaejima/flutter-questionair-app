@@ -36,25 +36,29 @@ class TopScreen extends StatelessWidget {
   }
 
   Widget _buildButton(BuildContext context, String text) {
-    return ElevatedButton(
-      child: Text(text),
-      style: ElevatedButton.styleFrom(
-        primary: Colors.amber,
-        onPrimary: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute<void>(
-            builder: (context) {
-              return PlayerSelectScreen();
-            },
+    return SizedBox(
+      width: 200.0, // tbd
+      height: 50, // tbd
+      child: ElevatedButton(
+        child: Text(text),
+        style: ElevatedButton.styleFrom(
+          primary: Colors.red,
+          onPrimary: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
           ),
-        );
-      },
+        ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute<void>(
+              builder: (context) {
+                return PlayerSelectScreen();
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }
