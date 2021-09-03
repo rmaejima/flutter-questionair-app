@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:nomin/views/components/top/build_hop_animated_text.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'package:nomin/views/screens/player_select_screen.dart';
 
@@ -8,6 +8,7 @@ class TopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white, // tbd
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min, // 軸方向のサイズを最小にすることで、中央寄せができる
@@ -20,7 +21,7 @@ class TopScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            buildHopAnimatedText(text: 'ゲームを選択してください'),
+            _buildHopAnimatedText(text: 'ゲームを選択してください'),
             const SizedBox(
               height: 60,
             ),
@@ -31,6 +32,25 @@ class TopScreen extends StatelessWidget {
             _buildButton(context, '次の罰ゲーム♬'),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget _buildHopAnimatedText({required String text}) {
+    return DefaultTextStyle(
+      style: const TextStyle(
+        color: Colors.black, // tbd
+        fontSize: 20.0,
+      ),
+      child: AnimatedTextKit(
+        animatedTexts: [
+          WavyAnimatedText(text),
+          WavyAnimatedText(text),
+        ],
+        isRepeatingAnimation: true,
+        onTap: () {
+          // function
+        },
       ),
     );
   }
