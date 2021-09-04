@@ -8,7 +8,7 @@ class TopScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // tbd
+      backgroundColor: Colors.black, // tbd
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min, // 軸方向のサイズを最小にすることで、中央寄せができる
@@ -16,7 +16,7 @@ class TopScreen extends StatelessWidget {
             Image(
               width: 150,
               height: 150,
-              image: AssetImage('lib/assets/images/golden-lights.png'),
+              image: AssetImage('lib/assets/images/nomin_logo.png'),
             ),
             const SizedBox(
               height: 30,
@@ -39,7 +39,7 @@ class TopScreen extends StatelessWidget {
   Widget _buildHopAnimatedText({required String text}) {
     return DefaultTextStyle(
       style: const TextStyle(
-        color: Colors.black, // tbd
+        color: Colors.white, // tbd
         fontSize: 20.0,
       ),
       child: AnimatedTextKit(
