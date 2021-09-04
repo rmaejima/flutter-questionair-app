@@ -9,6 +9,7 @@ class AmountSelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black, // tbd
       appBar: AppBar(
         title: Text('Amount List'),
       ),

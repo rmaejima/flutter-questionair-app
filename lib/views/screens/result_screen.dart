@@ -22,6 +22,7 @@ class ResultScreen extends HookWidget {
     final _selectedValuesState = useProvider(selectedValuesProvider.select((value) => value));
 
     return Scaffold(
+      backgroundColor: Colors.black, // tbd
       appBar: AppBar(
         title: Text('Result'),
       ),
